@@ -47,4 +47,27 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
     return RedirectResponse("/", status.HTTP_303_SEE_OTHER)
 
 
-# TODO: add another API route with a query parameter to retrieve quotes based on max age
+# TODO: add another API route with a query parameter to
+# retrieve quotes based on max age
+@app.get("/quotes")
+def get_quotes(max_age: int | None = None) -> list[Quote]:
+    """
+    Retrieve quotes from the database, optionally filtering based on
+    age of the posted quote.
+    """
+
+    # if no max_age is provided, return all quotes from JSON
+    if max_age is None:
+        return database["quotes"]
+
+    filtered_quotes: list[Quote] = []
+    now = datetime.now()
+
+    # else, filter quotes based on max_age,
+    # max_age is in days, can equal 7, 30, 365.
+    for quote in database["quotes"]:
+        if (now - datetime.fromisoformat(quote["time"])).days <= max_age:
+            filtered_quotes.append(quote)
+
+    return filtered_quotes
+
