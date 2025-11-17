@@ -30,50 +30,63 @@ export default function QuoteForm({ onSubmitSuccess }) {
     }
   };
 
-
   return (
-    <Box
-      as="form"
-      onSubmit={handleSubmit}
-      marginTop={6}
-      padding={4}
-      borderRadius="md"
-      background="gray.50"
-    >
-      <VStack spacing={4} align="stretch">
-        <Text fontSize="xl" fontWeight="bold">
-          {" "}
-          Submit a quote!{" "}
-        </Text>
-        <FormControl isRequired>
-          <FormLabel fontWeight="bold" htmlFor="name">
-            Name
-          </FormLabel>
-          <Input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your name"
-            variant="filled"
-          />
-        </FormControl>
+    <>
+      <Text
+        fontSize="xl"
+        fontWeight="bold"
+        color="#EEDDE5"
+        paddingLeft={4}
+        paddingTop={4}
+      >
+        Submit a quote!
+      </Text>
+      <Box
+        as="form"
+        onSubmit={handleSubmit}
+        margin={4}
+        padding={4}
+        borderRadius="md"
+        background="#FFF7F5"
+      >
+        <VStack spacing={4} align="stretch">
+          <FormControl isRequired>
+            <FormLabel fontWeight="bold" htmlFor="name">
+              Name:
+            </FormLabel>
+            <Input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              variant="filled"
+            />
+          </FormControl>
 
-        <FormControl isRequired>
-          <FormLabel fontWeight="bold" htmlFor="message">
-            Quote
-          </FormLabel>
-          <Textarea
-            id="quote"
-            name="message"
-            placeholder="Your quote"
-            variant="filled"
-          />
-        </FormControl>
+          <FormControl isRequired>
+            <FormLabel fontWeight="bold" htmlFor="message">
+              Quote:
+            </FormLabel>
+            <Textarea
+              id="quote"
+              name="message"
+              placeholder="Your quote"
+              variant="filled"
+            />
+          </FormControl>
 
-        <Button type="submit" colorScheme="teal" borderRadius="md" width="100%">
-          Submit
-        </Button>
-      </VStack>
-    </Box>
+          <Button
+            type="submit"
+            background="#FF8C6E"
+            _hover={{ bg: "#E56D56" }}
+            _active={{ bg: "#C95A45" }}
+            borderRadius="md"
+            width="100%"
+          >
+            Submit
+          </Button>
+        </VStack>
+      </Box>
+    </>
   );
 }
