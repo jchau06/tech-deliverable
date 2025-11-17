@@ -1,6 +1,7 @@
 import { Box, FormControl, FormLabel, Select } from "@chakra-ui/react";
 
 export default function QuoteFilter({ value, onChange }) {
+  
   return (
     <Box marginBottom={4}>
       <FormControl>

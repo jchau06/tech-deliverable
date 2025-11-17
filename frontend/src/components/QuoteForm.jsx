@@ -9,9 +9,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-export default function QuoteForm() {
-    const handleSubmit = async (e) => {
-    e.preventDefault(); 
+export default function QuoteForm({ onSubmitSuccess }) {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     const formData = new FormData(e.target);
     const data = {
@@ -27,15 +27,20 @@ export default function QuoteForm() {
 
       if (!res.ok) throw new Error("Failed to submit");
 
-      e.target.reset();
+      const newQuote = {
+        name: formData.get("name"),
+        message: formData.get("message"),
+        time: new Date().toISOString(),
+      };
 
-      onSubmitSuccess?.();
+      onSubmitSuccess?.(newQuote);
+      e.target.reset();
     } catch (err) {
       console.error(err);
     }
   };
 
-    return (
+  return (
     <Box
       as="form"
       onSubmit={handleSubmit}
@@ -45,7 +50,10 @@ export default function QuoteForm() {
       background="gray.50"
     >
       <VStack spacing={4} align="stretch">
-        <Text fontSize="xl" fontWeight="bold"> Submit a quote! </Text>        
+        <Text fontSize="xl" fontWeight="bold">
+          {" "}
+          Submit a quote!{" "}
+        </Text>
         <FormControl isRequired>
           <FormLabel fontWeight="bold" htmlFor="name">
             Name
