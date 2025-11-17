@@ -1,5 +1,7 @@
 import "./App.css";
+import Header from "./components/Header.jsx";
 import QuoteFilter from "./components/QuoteFilter.jsx";
+import QuoteForm from "./components/QuoteForm.jsx";
 
 function App() {
 	return (
@@ -7,15 +9,8 @@ function App() {
 			{/* TODO: include an icon for the quote book */}
 			<h1>Hack at UCI Tech Deliverable</h1>
 			<QuoteFilter />
-			<h2>Submit a quote</h2>
-			{/* TODO: implement custom form submission logic to not refresh the page */}
-			<form action="/api/quote" method="post">
-				<label htmlFor="input-name">Name</label>
-				<input type="text" name="name" id="input-name" required />
-				<label htmlFor="input-message">Quote</label>
-				<input type="text" name="message" id="input-message" required />
-				<button type="submit">Submit</button>
-			</form>
+			<QuoteForm 
+			/>
 
 			<h2>Previous Quotes</h2>
 			{/* TODO: Display the actual quotes from the database */}
