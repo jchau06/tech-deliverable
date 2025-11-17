@@ -1,6 +1,6 @@
 .App {
   min-height: 100vh;
-  background-image: url('/src/assets/sunset-background.jpg');
+  background-image: url('/src/assets/sunset-background.jpg'); /* Background image from He Junhui*/
   background-size: cover;      
   background-position: center; 
   background-repeat: no-repeat;
