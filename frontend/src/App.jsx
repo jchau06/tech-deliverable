@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Flex gap={6} align="flex-start">
+      <Flex gap={10} align="flex-start">
         <Box flex="1" maxWidth="30vw">
           <QuoteFilter
             value={filterValue}

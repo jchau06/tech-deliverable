@@ -14,7 +14,7 @@ export default function Header() {
         alt="Quote Book Logo"
         height="150px"
       ></Image>
-      <Text fontSize="3xl" fontWeight="bold" marginTop={2} color="#F9F9F9">
+      <Text fontSize="3xl" fontWeight="bold" marginTop={2} color="#EEDDE5">
         Hack at UCI's Quote Book
       </Text>
     </Box>
