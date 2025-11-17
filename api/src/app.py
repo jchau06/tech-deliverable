@@ -56,15 +56,12 @@ def get_quotes(max_age: int | None = None) -> list[Quote]:
     age of the posted quote.
     """
 
-    # if no max_age is provided, return all quotes from JSON
     if max_age is None:
         return database["quotes"]
 
     filtered_quotes: list[Quote] = []
     now = datetime.now()
 
-    # else, filter quotes based on max_age,
-    # max_age is in days, can equal 7, 30, 365.
     for quote in database["quotes"]:
         if (now - datetime.fromisoformat(quote["time"])).days <= max_age:
             filtered_quotes.append(quote)
