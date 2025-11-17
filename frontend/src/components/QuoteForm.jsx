@@ -36,7 +36,7 @@ export default function QuoteForm({ onSubmitSuccess }) {
         fontSize="xl"
         fontWeight="bold"
         color="#EEDDE5"
-        paddingLeft={4}
+        paddingLeft={8}
         paddingTop={4}
       >
         Submit a quote!
@@ -44,7 +44,8 @@ export default function QuoteForm({ onSubmitSuccess }) {
       <Box
         as="form"
         onSubmit={handleSubmit}
-        margin={4}
+        marginLeft={8}
+        marginTop={4}
         padding={4}
         borderRadius="md"
         background="#FFF7F5"

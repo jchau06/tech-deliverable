@@ -5,7 +5,7 @@ export default function QuoteFilter({ value, onChange }) {
     <Box
       display="flex"
       alignItems="center"
-      paddingLeft={4}
+      paddingLeft={8}
       paddingRight={4}
       flexDirection="column"
     >
