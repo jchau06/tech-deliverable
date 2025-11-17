@@ -1,7 +1,11 @@
+import { Box, Text } from "@chakra-ui/react";
+
 export default function Header () {
     return (
-        <header>
-            <h1> Hack at UCI Tech Deliverable</h1>
-        </header>
+        <Box>
+            <Text>
+                Hack at UCI Tech Deliverable
+            </Text>
+        </Box>
     )
 }
