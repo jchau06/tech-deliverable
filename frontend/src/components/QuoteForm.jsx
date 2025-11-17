@@ -12,12 +12,7 @@ import {
 export default function QuoteForm({ onSubmitSuccess }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData(e.target);
-    const data = {
-      name: formData.get("name"),
-      message: formData.get("message"),
-    };
 
     try {
       const res = await fetch("/api/quote", {
@@ -27,18 +22,14 @@ export default function QuoteForm({ onSubmitSuccess }) {
 
       if (!res.ok) throw new Error("Failed to submit");
 
-      const newQuote = {
-        name: formData.get("name"),
-        message: formData.get("message"),
-        time: new Date().toISOString(),
-      };
-
-      onSubmitSuccess?.(newQuote);
       e.target.reset();
+
+      onSubmitSuccess?.();
     } catch (err) {
       console.error(err);
     }
   };
+
 
   return (
     <Box
